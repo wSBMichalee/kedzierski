@@ -1,0 +1,181 @@
+/* src/app/(frontend)/[locale]/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables (shadcn/ui tokens + custom) ─────────────────────────── */
+@layer base {
+  :root {
+    /* Kolory (mapowanie na Tailwind config) */
+    --background: 220 30% 97%;
+    --foreground: 210 35% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 35% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 35% 18%;
+    --primary: 212 57% 23%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 93%;
+    --secondary-foreground: 212 57% 23%;
+    --muted: 210 20% 55%;
+    --muted-foreground: 210 25% 35%;
+    --accent: 38 85% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 85%;
+    --input: 210 20% 85%;
+    --ring: 212 57% 23%;
+    --radius: 0.5rem;
+  }
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typografia — konsekwentna skala per Global Rules */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-oswald), system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: 32px; }  /* mobile default — md: 40px, lg: 56px */
+  h2 { font-size: 26px; font-weight: 600; line-height: 1.15; }
+  h3 { font-size: 20px; font-weight: 600; line-height: 1.2; }
+  h4 { font-size: 18px; font-weight: 600; line-height: 1.3; }
+
+  @media (min-width: 768px) {
+    h1 { font-size: 40px; }
+    h2 { font-size: 32px; }
+    h3 { font-size: 24px; }
+    h4 { font-size: 18px; }
+  }
+
+  @media (min-width: 1024px) {
+    h1 { font-size: 56px; }
+    h2 { font-size: 40px; }
+    h3 { font-size: 28px; }
+    h4 { font-size: 20px; }
+  }
+
+  /* Focus styles — dostępność (WCAG AA) */
+  a:focus-visible, 
+  button:focus-visible, 
+  input:focus-visible, 
+  select:focus-visible, 
+  textarea:focus-visible, 
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 2px solid hsl(var(--primary)) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Respektuj prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Container z padding per breakpoint */
+  .container-site {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-site {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  /* Section padding per Global Rules */
+  .section-padding {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 96px;
+      padding-bottom: 96px;
+    }
+  }
+
+  /* Gradient granatowy (primary) */
+  .gradient-primary {
+    background: linear-gradient(135deg, #0F2236 0%, #1A3A5C 50%, #234E7A 100%);
+  }
+
+  /* Gradient bursztynowy (accent) */
+  .gradient-accent {
+    background: linear-gradient(135deg, #C07818 0%, #E8A020 100%);
+  }
+
+  /* Glassmorphism (dla kart) */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* Hero min-height per Global Rules */
+  .hero-height {
+    min-height: 400px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-height {
+      min-height: 480px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-height {
+      min-height: 640px;
+    }
+  }
+}
