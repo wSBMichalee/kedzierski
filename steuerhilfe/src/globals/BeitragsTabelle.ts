@@ -5,7 +5,7 @@ import type { GlobalConfig } from 'payload'
 
 export const BeitragsTabelle: GlobalConfig = {
   slug: 'beitrags-tabelle',
-  label: 'Mitgliedsbeitrag-Tabelle (Kalkulator)',
+  label: 'Membership Fee Table',
   admin: {
     group: 'Einstellungen',
     description: 'Beitragssätze für den Beitragsrechner auf der Webseite.',

@@ -3,7 +3,7 @@ import type { GlobalConfig } from 'payload'
 
 export const Header: GlobalConfig = {
   slug: 'header',
-  label: 'Navigation / Header',
+  label: 'Header',
   admin: {
     group: 'Einstellungen',
   },

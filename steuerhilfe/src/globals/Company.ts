@@ -5,7 +5,7 @@ import type { GlobalConfig } from 'payload'
 
 export const Company: GlobalConfig = {
   slug: 'company',
-  label: 'Vereinsdaten',
+  label: 'Company',
   admin: {
     group: 'Einstellungen',
   },

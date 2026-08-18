@@ -164,7 +164,7 @@ export function SiteFooter({ footer, settings, locale, company }: Props) {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10 pb-40">
         <div className="container-site py-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/70 text-small-desktop">
             {f.copyright || `© ${new Date().getFullYear()} Lohnsteuerhilfeverein e.V.`}

@@ -6,9 +6,9 @@ import { getAnalyticsConfig, getConsentTexts } from '@intecion/ipal-kit'
 import {
   Analytics,
   ConsentProvider,
-  CookieBanner,
   CookieButton,
 } from '@intecion/ipal-kit/client'
+import { CustomCookieBanner } from '@/components/ui/CustomCookieBanner'
 import { i18nConfig } from '@/i18n.config'
 import {
   getCachedPayload,
@@ -95,13 +95,7 @@ export default async function LocaleLayout({
           <SiteFooter footer={footer} settings={settings} locale={locale} company={company} />
 
           {/* Kolejność ważna: Provider owija wszystko, Banner+Button+Analytics w środku */}
-          <CookieBanner
-            classNames={{
-              root: 'fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-sm z-50',
-              primaryButton: 'bg-accent hover:bg-accent-dark text-white',
-              secondaryButton: 'border-primary text-primary hover:bg-secondary',
-            }}
-          />
+          <CustomCookieBanner />
           <CookieButton className="fixed bottom-4 left-4 z-40 md:hidden" />
           <Analytics {...analytics} />
         </ConsentProvider>

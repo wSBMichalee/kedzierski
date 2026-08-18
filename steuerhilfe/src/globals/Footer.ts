@@ -3,7 +3,7 @@ import type { GlobalConfig } from 'payload'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
-  label: 'Fußzeile / Footer',
+  label: 'Footer',
   admin: {
     group: 'Einstellungen',
   },
