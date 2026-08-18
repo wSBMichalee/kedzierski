@@ -2,6 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import { Input } from '@/components/ui/Input'
+import { Textarea } from '@/components/ui/Textarea'
+import { Select } from '@/components/ui/Select'
+import { Button } from '@/components/ui/Button'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -135,7 +139,7 @@ export function KontaktForm() {
         <p className="text-h4-desktop font-heading font-semibold text-primary mb-2">
           Vielen Dank für Ihre Nachricht.
         </p>
-        <p className="text-body-desktop text-ink/80">
+        <p className="text-body-desktop text-foreground/80">
           Wir melden uns innerhalb von 2 Werktagen bei Ihnen.
         </p>
       </div>
@@ -165,10 +169,10 @@ export function KontaktForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-small-desktop font-medium text-ink mb-1.5">
-            Name <span className="text-[#B91C1C]">*</span>
+          <label htmlFor="name" className="block text-small-desktop font-medium text-foreground mb-1.5">
+            Name <span className="text-destructive">*</span>
           </label>
-          <input
+          <Input
             type="text"
             id="name"
             name="name"
@@ -181,10 +185,9 @@ export function KontaktForm() {
             onBlur={(e) => handleBlur('name', e.target.value)}
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? 'name-error' : undefined}
-            className="w-full px-4 py-2.5 bg-white border border-input rounded-lg text-body-desktop text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
           {errors.name && (
-            <p id="name-error" className="mt-1.5 text-sm text-[#B91C1C]" role="alert">
+            <p id="name-error" className="mt-1.5 text-sm text-destructive" role="alert">
               {errors.name}
             </p>
           )}
@@ -192,10 +195,10 @@ export function KontaktForm() {
 
         {/* E-Mail */}
         <div>
-          <label htmlFor="email" className="block text-small-desktop font-medium text-ink mb-1.5">
-            E-Mail <span className="text-[#B91C1C]">*</span>
+          <label htmlFor="email" className="block text-small-desktop font-medium text-foreground mb-1.5">
+            E-Mail <span className="text-destructive">*</span>
           </label>
-          <input
+          <Input
             type="email"
             id="email"
             name="email"
@@ -208,10 +211,9 @@ export function KontaktForm() {
             onBlur={(e) => handleBlur('email', e.target.value)}
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'email-error' : undefined}
-            className="w-full px-4 py-2.5 bg-white border border-input rounded-lg text-body-desktop text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
           {errors.email && (
-            <p id="email-error" className="mt-1.5 text-sm text-[#B91C1C]" role="alert">
+            <p id="email-error" className="mt-1.5 text-sm text-destructive" role="alert">
               {errors.email}
             </p>
           )}
@@ -219,52 +221,43 @@ export function KontaktForm() {
 
         {/* Telefon */}
         <div>
-          <label htmlFor="telefon" className="block text-small-desktop font-medium text-ink mb-1.5">
-            Telefon <span className="text-ink/60 font-normal">(optional)</span>
+          <label htmlFor="telefon" className="block text-small-desktop font-medium text-foreground mb-1.5">
+            Telefon <span className="text-foreground/60 font-normal">(optional)</span>
           </label>
-          <input
+          <Input
             type="tel"
             id="telefon"
             name="telefon"
             value={telefon}
             onChange={(e) => setTelefon(e.target.value)}
-            className="w-full px-4 py-2.5 bg-white border border-input rounded-lg text-body-desktop text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
         </div>
 
         {/* Betreff */}
         <div>
-          <label htmlFor="betreff" className="block text-small-desktop font-medium text-ink mb-1.5">
+          <label htmlFor="betreff" className="block text-small-desktop font-medium text-foreground mb-1.5">
             Betreff
           </label>
-          <div className="relative">
-            <select
-              id="betreff"
-              name="betreff"
-              value={betreff}
-              onChange={(e) => setBetreff(e.target.value)}
-              className="w-full appearance-none px-4 py-2.5 bg-white border border-input rounded-lg text-body-desktop text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary cursor-pointer"
-            >
-              <option value="Allgemeine Frage">Allgemeine Frage</option>
-              <option value="Mitgliedschaft">Mitgliedschaft</option>
-              <option value="Beratungstermin">Beratungstermin</option>
-              <option value="Sonstiges">Sonstiges</option>
-            </select>
-            <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-ink/50">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </div>
-          </div>
+          <Select
+            id="betreff"
+            name="betreff"
+            value={betreff}
+            onChange={(e) => setBetreff(e.target.value)}
+          >
+            <option value="Allgemeine Frage">Allgemeine Frage</option>
+            <option value="Mitgliedschaft">Mitgliedschaft</option>
+            <option value="Beratungstermin">Beratungstermin</option>
+            <option value="Sonstiges">Sonstiges</option>
+          </Select>
         </div>
       </div>
 
       {/* Nachricht */}
       <div className="mb-6">
-        <label htmlFor="nachricht" className="block text-small-desktop font-medium text-ink mb-1.5">
-          Nachricht <span className="text-[#B91C1C]">*</span>
+        <label htmlFor="nachricht" className="block text-small-desktop font-medium text-foreground mb-1.5">
+          Nachricht <span className="text-destructive">*</span>
         </label>
-        <textarea
+        <Textarea
           id="nachricht"
           name="nachricht"
           required
@@ -277,10 +270,9 @@ export function KontaktForm() {
           onBlur={(e) => handleBlur('nachricht', e.target.value)}
           aria-invalid={!!errors.nachricht}
           aria-describedby={errors.nachricht ? 'nachricht-error' : undefined}
-          className="w-full px-4 py-3 bg-white border border-input rounded-lg text-body-desktop text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary resize-y"
         />
         {errors.nachricht && (
-          <p id="nachricht-error" className="mt-1.5 text-sm text-[#B91C1C]" role="alert">
+          <p id="nachricht-error" className="mt-1.5 text-sm text-destructive" role="alert">
             {errors.nachricht}
           </p>
         )}
@@ -306,7 +298,7 @@ export function KontaktForm() {
               className="w-5 h-5 border-input rounded text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             />
           </div>
-          <label htmlFor="datenschutz-einwilligung" className="text-small-desktop text-ink/80 leading-relaxed">
+          <label htmlFor="datenschutz-einwilligung" className="text-small-desktop text-foreground/80 leading-relaxed">
             Ich habe die{' '}
             <Link 
               href="/datenschutz" 
@@ -316,11 +308,11 @@ export function KontaktForm() {
             >
               Datenschutzerklärung
             </Link>{' '}
-            gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage einverstanden. <span className="text-[#B91C1C]">*</span>
+            gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage einverstanden. <span className="text-destructive">*</span>
           </label>
         </div>
         {errors.datenschutz && (
-          <p id="datenschutz-error" className="mt-1.5 text-sm text-[#B91C1C]" role="alert">
+          <p id="datenschutz-error" className="mt-1.5 text-sm text-destructive" role="alert">
             {errors.datenschutz}
           </p>
         )}
@@ -329,7 +321,7 @@ export function KontaktForm() {
       {/* Komunikat o błędzie serwera */}
       {status === 'error' && (
         <div 
-          className="mb-6 p-4 bg-red-50 border border-red-200 text-[#B91C1C] rounded-lg text-sm" 
+          className="mb-6 p-4 bg-red-50 border border-red-200 text-destructive rounded-lg text-sm" 
           aria-live="assertive" 
           role="alert"
         >
@@ -346,14 +338,14 @@ export function KontaktForm() {
 
       {/* Submit */}
       <div>
-        <button
+        <Button
           type="submit"
           disabled={status === 'loading'}
           aria-busy={status === 'loading'}
-          className="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-70 disabled:cursor-not-allowed"
+          size="lg"
         >
           {status === 'loading' ? 'Wird gesendet…' : 'Nachricht senden'}
-        </button>
+        </Button>
       </div>
     </form>
   )

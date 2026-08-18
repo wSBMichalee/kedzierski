@@ -4,6 +4,8 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { CheckCircle2, Loader2, Mail } from 'lucide-react'
+import { Input } from '@/components/ui/Input'
+import { Button } from '@/components/ui/Button'
 
 type Props = {
   buttonLabel: string
@@ -97,7 +99,7 @@ export function NewsletterFormClient({ buttonLabel, datenschutzHinweis, locale }
                   aria-hidden="true"
                   strokeWidth={1.5}
                 />
-                <input
+                <Input
                   id="newsletter-email"
                   type="email"
                   name="email"
@@ -107,14 +109,16 @@ export function NewsletterFormClient({ buttonLabel, datenschutzHinweis, locale }
                   required
                   autoComplete="email"
                   disabled={state === 'submitting'}
-                  className="w-full pl-10 pr-4 py-3.5 border border-input rounded-lg bg-white text-foreground text-body-desktop placeholder:text-muted focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-0 focus-visible:border-primary transition-colors disabled:opacity-60"
+                  className="pl-10"
                   aria-describedby={errorMsg ? 'newsletter-error' : undefined}
                 />
               </div>
-              <button
+              <Button
                 type="submit"
+                variant="accent"
+                size="lg"
                 disabled={state === 'submitting'}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent hover:bg-accent-dark text-white font-body font-500 rounded-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 whitespace-nowrap"
+                className="w-full sm:w-auto px-6 whitespace-nowrap"
               >
                 {state === 'submitting' ? (
                   <>
@@ -124,7 +128,7 @@ export function NewsletterFormClient({ buttonLabel, datenschutzHinweis, locale }
                 ) : (
                   buttonLabel
                 )}
-              </button>
+              </Button>
             </div>
 
             {/* Fehlermeldung — animiert */}

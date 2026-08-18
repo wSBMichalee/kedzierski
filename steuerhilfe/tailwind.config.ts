@@ -48,49 +48,47 @@ const config: Config = {
       // Paleta kolorów (urzędowo-premium)
       // ─────────────────────────────────────────────
       colors: {
-        // Główna paleta
         primary: {
-          DEFAULT: '#1A3A5C',   // granat — zaufanie, finanse
+          DEFAULT: 'hsl(var(--primary))',
           light: '#234E7A',
           dark: '#0F2236',
-          foreground: '#FFFFFF',
+          foreground: 'hsl(var(--primary-foreground))',
         },
         accent: {
-          DEFAULT: '#E8A020',   // bursztynowy — CTA, akcenty
+          DEFAULT: 'hsl(var(--accent))',
           light: '#F0B840',
           dark: '#C07818',
-          foreground: '#FFFFFF',
+          foreground: 'hsl(var(--accent-foreground))',
         },
         surface: {
-          DEFAULT: '#F4F6F9',   // chłodna biel
+          DEFAULT: 'hsl(var(--surface))',
           alt: '#EAECF0',
-          dark: '#1C2B3A',      // ciemne tło sekcji
+          dark: '#1C2B3A',
         },
         muted: {
-          DEFAULT: '#6B7E8F',
-          foreground: '#4A5668',
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
         },
-        // Tokeny shadcn/ui
-        background: '#F4F6F9',
-        foreground: '#1C2B3A',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
         card: {
-          DEFAULT: '#FFFFFF',
-          foreground: '#1C2B3A',
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
         popover: {
-          DEFAULT: '#FFFFFF',
-          foreground: '#1C2B3A',
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
         },
-        border: '#D4DAE2',
-        input: '#D4DAE2',
-        ring: '#1A3A5C',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
         destructive: {
-          DEFAULT: '#CC3333',
-          foreground: '#FFFFFF',
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
         },
         secondary: {
-          DEFAULT: '#EAF0F6',
-          foreground: '#1A3A5C',
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
       },
 

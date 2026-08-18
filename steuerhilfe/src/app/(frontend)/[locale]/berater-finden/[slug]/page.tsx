@@ -178,7 +178,7 @@ export default async function BeraterDetailPage({ params }: Props) {
                 <div className="mt-6 pt-6 border-t border-border">
                   <Link
                     href={`/${locale}/kontakt?berater=${slug}`}
-                    className="block w-full text-center px-4 py-3 bg-accent hover:bg-accent-dark text-white font-body font-500 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    className="block w-full text-center px-4 py-3 bg-accent hover:bg-accent-dark text-white font-body font-medium rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   >
                     Termin anfragen
                   </Link>
@@ -219,7 +219,7 @@ export default async function BeraterDetailPage({ params }: Props) {
               <FadeInSection>
                 <Link
                   href={`/${locale}/berater-finden`}
-                  className="inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-500 transition-colors"
+                  className="inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-medium transition-colors"
                 >
                   ← Alle Beratungsstellen
                 </Link>

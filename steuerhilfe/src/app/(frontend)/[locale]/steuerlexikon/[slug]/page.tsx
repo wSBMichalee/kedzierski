@@ -129,7 +129,7 @@ export default async function LexikonEntryPage({ params }: Props) {
                           className="flex items-center gap-3 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all group focus-visible:ring-2 focus-visible:ring-primary"
                         >
                           <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" aria-hidden="true" strokeWidth={1.5} />
-                          <span className="font-body font-500 text-foreground group-hover:text-primary transition-colors">
+                          <span className="font-body font-medium text-foreground group-hover:text-primary transition-colors">
                             {post.title}
                           </span>
                         </Link>
@@ -146,7 +146,7 @@ export default async function LexikonEntryPage({ params }: Props) {
             <div className="mt-10 pt-8 border-t border-border">
               <Link
                 href={`/${locale}/steuerlexikon`}
-                className="inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-500 transition-colors"
+                className="inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-medium transition-colors"
               >
                 ← Zurück zum Steuerlexikon
               </Link>

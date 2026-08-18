@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MobileNav } from './MobileNav'
 import { DesktopNav } from './DesktopNav'
+import { buttonVariants } from '@/components/ui/Button'
 
 type Props = {
   header: unknown
@@ -76,7 +77,7 @@ export function SiteHeader({ header, settings, locale, company }: Props) {
             <div className="hidden lg:block flex-shrink-0">
               <Link
                 href={ctaButton.href || `/${locale}/berater-finden`}
-                className="inline-flex items-center justify-center px-6 py-2.5 bg-accent hover:bg-accent-dark text-white font-body font-500 text-sm rounded-lg transition-all duration-200 ease-out hover:shadow-md focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className={buttonVariants({ variant: 'accent', size: 'default', className: 'text-sm hover:shadow-md' })}
               >
                 {ctaButton.label}
               </Link>

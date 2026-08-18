@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
+import { Select } from '@/components/ui/Select'
+import { buttonVariants } from '@/components/ui/Button'
 
 // TODO: Platzhalterwerte — durch echte Beträge aus dem BeitragsTabelle-Global ersetzen.
 const BEITRAGSSTUFEN = [
@@ -56,29 +58,20 @@ export function BeitragsRechner() {
       </noscript>
 
       <div className="mb-8">
-        <label htmlFor="einkommen" className="block text-h4-desktop font-heading font-semibold text-ink mb-3">
+        <label htmlFor="einkommen" className="block text-h4-desktop font-heading font-semibold text-foreground mb-3">
           Ihre Jahreseinnahmen
         </label>
-        <div className="relative">
-          <select
-            id="einkommen"
-            value={selectedIndex}
-            onChange={(e) => setSelectedIndex(Number(e.target.value))}
-            className="w-full appearance-none bg-white border border-input rounded-lg px-4 py-3 text-body-desktop text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary cursor-pointer"
-          >
-            {BEITRAGSSTUFEN.map((stufe, i) => (
-              <option key={i} value={i}>
-                {formatIncomeBracket(stufe.bis, i === BEITRAGSSTUFEN.length - 1, i)}
-              </option>
-            ))}
-          </select>
-          {/* Custom chevron */}
-          <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-ink/50">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </div>
-        </div>
+        <Select
+          id="einkommen"
+          value={selectedIndex}
+          onChange={(e) => setSelectedIndex(Number(e.target.value))}
+        >
+          {BEITRAGSSTUFEN.map((stufe, i) => (
+            <option key={i} value={i}>
+              {formatIncomeBracket(stufe.bis, i === BEITRAGSSTUFEN.length - 1, i)}
+            </option>
+          ))}
+        </Select>
       </div>
 
       {/* Karta wyniku */}
@@ -88,7 +81,7 @@ export function BeitragsRechner() {
         aria-atomic="true"
       >
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-4 pb-4 border-b border-border">
-          <span className="text-body-desktop font-medium text-ink/80">Ihr Jahresbeitrag</span>
+          <span className="text-body-desktop font-medium text-foreground/80">Ihr Jahresbeitrag</span>
           <motion.span 
             key={`beitrag-${selected.beitrag}`}
             initial={!prefersReduced ? { opacity: 0.5, y: -4 } : false}
@@ -100,14 +93,14 @@ export function BeitragsRechner() {
         </div>
         
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-          <span className="text-body-desktop font-medium text-ink/80">Aufnahmegebühr (einmalig)</span>
-          <span className="text-h4-desktop font-heading font-semibold text-ink">
+          <span className="text-body-desktop font-medium text-foreground/80">Aufnahmegebühr (einmalig)</span>
+          <span className="text-h4-desktop font-heading font-semibold text-foreground">
             {currencyFormatter.format(AUFNAHMEGEBUEHR)}
           </span>
         </div>
       </div>
 
-      <p className="text-small-desktop text-ink/70 mb-8 text-center sm:text-left">
+      <p className="text-small-desktop text-foreground/70 mb-8 text-center sm:text-left">
         Alle Leistungen sind im Mitgliedsbeitrag enthalten. Es entstehen keine Zusatzkosten.
       </p>
 
@@ -115,7 +108,7 @@ export function BeitragsRechner() {
       <div className="flex justify-center sm:justify-start">
         <Link
           href="/mitglied-werden"
-          className="inline-flex items-center justify-center h-[48px] px-6 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className={buttonVariants({ size: 'lg' })}
         >
           Jetzt Mitglied werden
         </Link>

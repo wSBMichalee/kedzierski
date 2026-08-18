@@ -13,10 +13,10 @@ export default function KontaktPage() {
     <main className="flex-1 py-12 md:py-24 bg-surface min-h-[70vh]">
       <div className="container px-4 md:px-8 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="text-h1-desktop font-heading font-semibold text-ink mb-4">
+          <h1 className="text-h1-desktop font-heading font-semibold text-foreground mb-4">
             Kontakt
           </h1>
-          <p className="text-body-desktop text-ink/70">
+          <p className="text-body-desktop text-foreground/70">
             Haben Sie Fragen zur Mitgliedschaft oder möchten Sie einen Beratungstermin vereinbaren? Schreiben Sie uns eine Nachricht.
           </p>
         </div>

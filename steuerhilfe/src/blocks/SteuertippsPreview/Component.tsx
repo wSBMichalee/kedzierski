@@ -58,7 +58,7 @@ export async function SteuertippsPreviewComponent({
             </h2>
             <Link
               href={`/${locale}/steuertipps`}
-              className="hidden md:inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-500 text-body-desktop transition-colors duration-150"
+              className="hidden md:inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-medium text-body-desktop transition-colors duration-150"
             >
               {ctaLabel}
               <ArrowRight className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
@@ -107,7 +107,7 @@ export async function SteuertippsPreviewComponent({
                       {/* Kategorie + Datum */}
                       <div className="flex items-center gap-3 mb-3">
                         {post.kategorie && (
-                          <span className="text-xs font-body font-500 uppercase tracking-wide text-accent bg-accent/10 px-2 py-1 rounded">
+                          <span className="text-xs font-body font-medium uppercase tracking-wide text-accent bg-accent/10 px-2 py-1 rounded">
                             {KATEGORIE_LABELS[post.kategorie] || post.kategorie}
                           </span>
                         )}
@@ -136,7 +136,7 @@ export async function SteuertippsPreviewComponent({
 
                       <Link
                         href={`/${locale}/steuertipps/${post.slug}`}
-                        className="inline-flex items-center gap-1 text-accent hover:text-accent-dark font-body font-500 text-small-desktop transition-colors duration-150 mt-auto"
+                        className="inline-flex items-center gap-1 text-accent hover:text-accent-dark font-body font-medium text-small-desktop transition-colors duration-150 mt-auto"
                         aria-label={`Mehr lesen: ${post.title}`}
                       >
                         Mehr lesen
@@ -155,7 +155,7 @@ export async function SteuertippsPreviewComponent({
           <div className="mt-8 text-center md:hidden">
             <Link
               href={`/${locale}/steuertipps`}
-              className="inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-500 transition-colors duration-150"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent-dark font-body font-medium transition-colors duration-150"
             >
               {ctaLabel}
               <ArrowRight className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />

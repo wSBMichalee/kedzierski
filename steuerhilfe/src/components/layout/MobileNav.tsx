@@ -5,6 +5,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { buttonVariants } from '@/components/ui/Button'
 
 type NavItem = {
   label: string
@@ -136,7 +137,7 @@ export function MobileNav({ navItems, locale, ctaButton }: Props) {
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === index ? null : index)
                         }
-                        className="w-full flex items-center justify-between px-4 py-3 text-foreground font-body font-500 hover:text-primary hover:bg-surface-DEFAULT rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                        className="w-full flex items-center justify-between px-4 py-3 text-foreground font-body font-medium hover:text-primary hover:bg-surface-DEFAULT rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                         aria-expanded={openSubmenu === index}
                       >
                         {item.label}
@@ -177,7 +178,7 @@ export function MobileNav({ navItems, locale, ctaButton }: Props) {
                     <Link
                       href={item.href || '#'}
                       onClick={close}
-                      className="block px-4 py-3 text-foreground font-body font-500 hover:text-primary hover:bg-surface-DEFAULT rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                      className="block px-4 py-3 text-foreground font-body font-medium hover:text-primary hover:bg-surface-DEFAULT rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                     >
                       {item.label}
                     </Link>
@@ -198,7 +199,7 @@ export function MobileNav({ navItems, locale, ctaButton }: Props) {
                 <Link
                   href={ctaButton.href || `/${locale}/berater-finden`}
                   onClick={close}
-                  className="block w-full text-center px-6 py-3.5 bg-accent hover:bg-accent-dark text-white font-body font-500 rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className={buttonVariants({ variant: 'accent', size: 'lg', className: 'w-full' })}
                 >
                   {ctaButton.label}
                 </Link>

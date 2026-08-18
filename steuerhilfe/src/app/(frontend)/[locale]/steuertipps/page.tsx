@@ -82,7 +82,7 @@ export default async function SteuertippsPage({ params, searchParams }: Props) {
             <Filter className="w-4 h-4 text-muted flex-shrink-0" aria-hidden="true" strokeWidth={1.5} />
             <Link
               href={`/${locale}/steuertipps`}
-              className={`flex-shrink-0 px-3 py-1.5 rounded-full text-small-desktop font-body font-500 transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 rounded-full text-small-desktop font-body font-medium transition-colors ${
                 !kategorie
                   ? 'bg-primary text-white'
                   : 'text-muted-foreground hover:text-primary hover:bg-surface-DEFAULT'
@@ -94,7 +94,7 @@ export default async function SteuertippsPage({ params, searchParams }: Props) {
               <Link
                 key={key}
                 href={`/${locale}/steuertipps?kategorie=${key}`}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-small-desktop font-body font-500 transition-colors ${
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-small-desktop font-body font-medium transition-colors ${
                   kategorie === key
                     ? 'bg-primary text-white'
                     : 'text-muted-foreground hover:text-primary hover:bg-surface-DEFAULT'
@@ -145,7 +145,7 @@ export default async function SteuertippsPage({ params, searchParams }: Props) {
                       <div className="p-6 flex flex-col flex-1">
                         <div className="flex items-center gap-3 mb-3">
                           {post.kategorie && (
-                            <span className="text-xs font-body font-500 uppercase tracking-wide text-accent bg-accent/10 px-2 py-1 rounded">
+                            <span className="text-xs font-body font-medium uppercase tracking-wide text-accent bg-accent/10 px-2 py-1 rounded">
                               {KATEGORIE_LABELS[post.kategorie as string] || post.kategorie}
                             </span>
                           )}
@@ -185,7 +185,7 @@ export default async function SteuertippsPage({ params, searchParams }: Props) {
                   key={p}
                   href={`/${locale}/steuertipps?page=${p}${kategorie ? `&kategorie=${kategorie}` : ''}`}
                   aria-current={p === pageNum ? 'page' : undefined}
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg font-body font-500 text-sm transition-all ${
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg font-body font-medium text-sm transition-all ${
                     p === pageNum
                       ? 'bg-primary text-white'
                       : 'bg-white border border-border text-foreground hover:border-primary hover:text-primary'

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Cookie } from 'lucide-react'
 import Link from 'next/link'
 import { useConsentContext } from '@intecion/ipal-kit/client'
+import { Button } from '@/components/ui/Button'
 
 // Categories standard in ipal-kit
 const CONSENT_CATEGORIES = ['necessary', 'functional', 'analytics', 'marketing'] as const
@@ -87,24 +88,27 @@ export function CustomCookieBanner() {
             </p>
 
             <div className="flex flex-col md:flex-row gap-2 md:gap-2 w-full">
-              <button 
+              <Button 
                 onClick={() => setShowSettings(true)}
-                className="w-full md:flex-1 py-[11px] px-5 rounded-lg border border-foreground/20 text-foreground text-[13.5px] font-medium hover:bg-surface transition-colors"
+                variant="outline"
+                className="w-full md:flex-1 text-[13.5px]"
               >
                 Einstellungen
-              </button>
-              <button 
+              </Button>
+              <Button 
                 onClick={rejectAll}
-                className="w-full md:flex-1 py-[11px] px-5 rounded-lg border border-foreground/20 text-foreground text-[13.5px] font-medium hover:bg-surface transition-colors"
+                variant="outline"
+                className="w-full md:flex-1 text-[13.5px]"
               >
                 Ablehnen
-              </button>
-              <button 
+              </Button>
+              <Button 
                 onClick={acceptAll}
-                className="w-full md:flex-1 py-[11px] px-5 rounded-lg bg-primary text-white text-[13.5px] font-medium hover:bg-primary-dark transition-colors"
+                variant="default"
+                className="w-full md:flex-1 text-[13.5px]"
               >
                 Alle akzeptieren
-              </button>
+              </Button>
             </div>
           </>
         ) : (
@@ -145,18 +149,20 @@ export function CustomCookieBanner() {
             </ul>
 
             <div className="flex flex-col md:flex-row justify-end gap-2 w-full">
-              <button 
+              <Button 
                 onClick={() => setShowSettings(false)}
-                className="w-full md:w-auto py-[11px] px-5 rounded-lg border border-foreground/20 text-foreground text-[13.5px] font-medium hover:bg-surface transition-colors"
+                variant="outline"
+                className="w-full md:w-auto text-[13.5px]"
               >
                 {texts?.buttons?.back || 'Zurück'}
-              </button>
-              <button 
+              </Button>
+              <Button 
                 onClick={() => savePreferences(choices)}
-                className="w-full md:w-auto py-[11px] px-5 rounded-lg bg-primary text-white text-[13.5px] font-medium hover:bg-primary-dark transition-colors"
+                variant="default"
+                className="w-full md:w-auto text-[13.5px]"
               >
                 {texts?.buttons?.save || 'Speichern'}
-              </button>
+              </Button>
             </div>
           </>
         )}

@@ -28,7 +28,7 @@ export function DesktopNav({ navItems, locale }: Props) {
             <div key={index} className="relative group">
               <button
                 type="button"
-                className="flex items-center gap-1 px-3 py-2 text-sm font-body font-500 text-foreground hover:text-primary rounded-md transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
+                className="flex items-center gap-1 px-3 py-2 text-sm font-body font-medium text-foreground hover:text-primary rounded-md transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
                 aria-haspopup="true"
               >
                 {item.label}
@@ -51,7 +51,7 @@ export function DesktopNav({ navItems, locale }: Props) {
                       href={sub.href}
                       className="block px-4 py-3 rounded-lg hover:bg-surface-DEFAULT transition-colors duration-150 group/sub focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
                     >
-                      <span className="block font-body font-500 text-sm text-foreground group-hover/sub:text-primary transition-colors">
+                      <span className="block font-body font-medium text-sm text-foreground group-hover/sub:text-primary transition-colors">
                         {sub.label}
                       </span>
                       {sub.description && (
@@ -71,7 +71,7 @@ export function DesktopNav({ navItems, locale }: Props) {
           <Link
             key={index}
             href={item.href || '#'}
-            className="px-3 py-2 text-sm font-body font-500 text-foreground hover:text-primary rounded-md transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
+            className="px-3 py-2 text-sm font-body font-medium text-foreground hover:text-primary rounded-md transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
           >
             {item.label}
           </Link>

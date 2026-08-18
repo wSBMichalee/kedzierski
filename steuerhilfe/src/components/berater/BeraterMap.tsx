@@ -6,6 +6,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { Search, MapPin, Phone, ChevronRight, X, Loader2 } from 'lucide-react'
 import Link from 'next/link'
+import { Input } from '@/components/ui/Input'
+import { buttonVariants } from '@/components/ui/Button'
 
 type BeraterMarker = {
   id: string
@@ -138,13 +140,13 @@ export function BeraterMapClient({ berater, locale, mapboxToken }: Props) {
               aria-hidden="true"
               strokeWidth={1.5}
             />
-            <input
+            <Input
               id="berater-search"
               type="search"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
               placeholder="PLZ oder Ort eingeben…"
-              className="w-full pl-9 pr-4 py-3 border border-input rounded-lg text-body-desktop focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary"
+              className="pl-9"
               aria-label="Berater nach PLZ oder Ort suchen"
             />
           </div>
@@ -270,7 +272,7 @@ export function BeraterMapClient({ berater, locale, mapboxToken }: Props) {
               <div className="p-4 border-t border-border">
                 <Link
                   href={`/${locale}/berater-finden/${selectedBerater.slug}`}
-                  className="block w-full text-center px-4 py-3 bg-accent hover:bg-accent-dark text-white font-body font-500 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className={buttonVariants({ variant: 'accent', className: 'w-full' })}
                 >
                   Zur Beraterseite
                 </Link>

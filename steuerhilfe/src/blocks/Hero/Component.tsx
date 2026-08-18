@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 import { HeroInteractive } from './HeroInteractive'
+import { buttonVariants } from '@/components/ui/Button'
 import type { HeroBlock } from '@/payload-types'
 
 type Props = HeroBlock & { locale: string }
@@ -41,7 +42,7 @@ export async function HeroComponent({
           <div className="max-w-3xl">
             {/* Badge */}
             <p
-              className="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 text-primary font-body font-500 text-sm px-4 py-1.5 rounded-full mb-6"
+              className="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 text-primary font-body font-medium text-sm px-4 py-1.5 rounded-full mb-6"
             >
               <CheckCircle2 className="w-4 h-4" aria-hidden="true" strokeWidth={2} />
               {heroBadge}
@@ -74,13 +75,13 @@ export async function HeroComponent({
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={primaryCta?.href || '/berater-finden'}
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-primary hover:bg-primary-dark text-white font-body font-500 rounded-md transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className={buttonVariants({ variant: 'default', size: 'lg' })}
               >
                 {primaryCta?.label || 'Berater finden'}
               </Link>
               <Link
                 href={secondaryCta?.href || '/online-rechner'}
-                className="inline-flex items-center justify-center px-8 py-3.5 border border-primary text-primary hover:bg-primary-dark hover:text-white bg-transparent font-body font-500 rounded-md transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className={buttonVariants({ variant: 'outline', size: 'lg' })}
               >
                 {secondaryCta?.label || 'Beitrag berechnen'}
               </Link>
@@ -98,7 +99,7 @@ export async function HeroComponent({
                 <span className="font-heading text-primary text-3xl md:text-4xl mb-2">
                   {stat.value}
                 </span>
-                <span className="font-body text-foreground/60 text-sm font-500">
+                <span className="font-body text-foreground/60 text-sm font-medium">
                   {stat.label}
                 </span>
               </li>
